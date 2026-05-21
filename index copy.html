@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Oswald:wght@300;400;500&display=swap"
+            rel="stylesheet">
+
+        <style>
+        /* Custom font stack to replicate the condensed architectural style */
+        .font-nav {
+            font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+        }
+        .font-zhimo {
+            font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+        }
+    </style>
+    </head>
+    <body class="bg-[#ebebeb] font-nav text-gray-800 antialiased">
+
+        <header
+            class="w-full bg-[#ebebeb] border-b border-gray-200 relative z-40 px-6 sm:px-12 py-5 sm:py-6">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+                <a href="#"
+                    class="text-gray-700 text-xl sm:text-2xl font-medium tracking-[0.2em] uppercase select-none">
+                    Golden Jade
+                </a>
+
+                <nav
+                    class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-[13px] tracking-[0.15em] font-medium text-gray-600 uppercase">
+                    <a href="#about"
+                        class="text-[#2ecc71] flex items-center transition-colors">
+                        About
+                        <svg class="w-3 h-3 ml-1 stroke-current" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </a>
+                    <a href="#news"
+                        class="hover:text-gray-900 transition-colors">News</a>
+                    <a href="#projects"
+                        class="hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="#timeline"
+                        class="hover:text-gray-900 transition-colors">Timeline</a>
+                    <a href="#foundation"
+                        class="hover:text-gray-900 transition-colors">Foundation</a>
+                    <a href="#esg"
+                        class="hover:text-gray-900 transition-colors">ESG</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="#"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span class="text-xs font-bold font-sans">f</span>
+                    </a>
+                    <a href="#"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span class="text-sm font-sans">📷</span>
+                    </a>
+                </div>
+
+                <button id="menu-open"
+                    class="lg:hidden w-10 h-10 bg-gray-400/80 hover:bg-gray-400 flex flex-col justify-center items-center space-y-1.5 focus:outline-none transition-colors">
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                </button>
+            </div>
+        </header>
+
+        <div id="mobile-overlay"
+            class="fixed inset-0 z-50 bg-[#ebebeb] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 sm:p-12 overflow-y-auto">
+
+            <div class="flex justify-end">
+                <button id="menu-close"
+                    class="text-gray-600 hover:text-gray-900 p-2 text-2xl focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav
+                class="flex flex-col items-center justify-center my-auto space-y-6 text-xl sm:text-2xl tracking-[0.2em] font-medium text-gray-800 uppercase">
+                <a href="#about" class="flex items-center group">
+                    About
+                    <svg
+                        class="w-4 h-4 ml-1.5 transform group-hover:translate-y-0.5 transition-transform"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <a href="#news">News</a>
+                <a href="#projects" class="flex items-center group">
+                    Projects
+                    <svg class="w-4 h-4 ml-1.5 transform -rotate-90" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <a href="#timeline">Timeline</a>
+                <a href="#foundation">Foundation</a>
+                <a href="#esg">ESG</a>
+            </nav>
+
+            <div
+                class="w-full max-w-md mx-auto pt-8 border-t border-gray-300/60 text-left space-y-4 text-xs tracking-widest text-gray-500 font-sans font-light">
+                <div class="flex items-center space-x-2 mb-2">
+                    <a href="#"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-700">
+                        <span class="text-xs font-bold">f</span>
+                    </a>
+                    <a href="#"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-700">
+                        <span class="text-sm">📷</span>
+                    </a>
+                </div>
+                <p>A ｜ 台中市南屯區大墩十二街258號</p>
+                <p>T ｜ 04-2254-5388</p>
+                <p class="text-[10px] text-gray-400 uppercase pt-2">Copyright ©
+                    Golden Jade Construction & Development Corp.</p>
+            </div>
+        </div>
+
+        <section class="bg-[#ebebeb] py-16 px-6 sm:px-12 md:px-20 font-sans">
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+                <div class="w-full lg:w-auto">
+                    <h2
+                        class="font-nav text-5xl sm:text-6xl md:text-7xl lg:text-[85px] font-normal tracking-[0.05em] text-[#1a1a1a] leading-none uppercase">
+                        The Fundamentals
+                    </h2>
+                </div>
+                <div class="w-full lg:max-w-md xl:max-w-lg lg:mb-2">
+                    <h3
+                        class="text-base sm:text-lg font-medium tracking-[0.2em] text-[#1a1a1a] mb-4">
+                        品牌基石
+                    </h3>
+                    <div
+                        class="space-y-2 text-xs sm:text-sm tracking-[0.1em] text-[#333333] font-light leading-relaxed">
+                        <p>在城市中創造自然，在每一塊土地構築更好的環境</p>
+                        <p
+                            class="uppercase font-normal tracking-[0.08em] opacity-90">
+                            Create nature in the city, build a better
+                            environment in every land
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about"
+            class="relative bg-[#ececec] py-20 sm:py-32 overflow-hidden font-zhimo">
+            <div class="container mx-auto px-4 max-w-7xl relative">
+
+                <div
+                    class="hidden lg:flex absolute left-8 top-0 h-full flex-col items-center pointer-events-none">
+                    <span
+                        class="text-[#4caf50] text-xs tracking-[0.3em] [writing-mode:vertical-lr] uppercase mb-4">Scroll</span>
+                    <div class="w-[1px] h-24 bg-[#4caf50]"></div>
+                </div>
+
+                <div class="relative flex flex-col items-end">
+                    <div class="w-full lg:w-11/12 overflow-hidden">
+                        <img
+                            src="https://images.pexels.com/photos/17131943/pexels-photo-17131943.jpeg"
+                            alt="Building"
+                            class="w-full h-[300px] sm:h-[500px] lg:h-[600px] object-cover">
+                    </div>
+
+                    <div
+                        class="bg-white p-8 sm:p-12 lg:p-16 w-full lg:w-[550px] lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 shadow-sm">
+                        <div class="mb-8">
+                            <p
+                                class="text-gray-600 text-lg tracking-[0.4em] mb-2">關於磐鈺</p>
+                            <h2
+                                class="text-4xl sm:text-5xl font-bold tracking-[0.2em] text-gray-800 uppercase">About</h2>
+                        </div>
+
+                        <div
+                            class="space-y-6 text-sm sm:text-base text-gray-500 tracking-[0.15em] leading-relaxed">
+                            <p>「磐」穩固而堅的基石<br>「鈺」柔軟溫潤的玉石</p>
+                            <p>磐鈺二字意喻：行而剛柔並濟、實而內外兼容。</p>
+                            <p>做建築，立德信，與時俱進，與人為善。</p>
+                        </div>
+
+                        <div class="mt-12">
+                            <a href="#"
+                                class="group inline-flex items-center text-[#4caf50] tracking-[0.2em] text-sm font-bold uppercase">
+                                Read More
+                                <span
+                                    class="ml-2 transform group-hover:translate-x-2 transition-transform duration-300">——</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute right-4 bottom-0 lg:right-12">
+                    <a href="#"
+                        class="flex flex-col items-center space-y-2 group">
+                        <div
+                            class="border border-[#4caf50] p-1 group-hover:bg-[#4caf50] transition-colors">
+                            <svg
+                                class="w-3 h-3 text-[#4caf50] group-hover:text-white"
+                                fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                            </svg>
+                        </div>
+                        <span
+                            class="text-[#4caf50] text-[10px] tracking-[0.2em] [writing-mode:vertical-lr] uppercase">Top</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 sm:py-32 bg-[#ebebeb] font-zhimo">
+            <div class="container max-w-7xl mx-auto px-6 sm:px-12">
+                <div class="text-center mb-16 sm:mb-24">
+                    <p
+                        class="text-xs tracking-[0.4em] text-gray-400 uppercase mb-2">Selected
+                        Portfolios</p>
+                    <h2
+                        class="text-3xl sm:text-4xl tracking-[0.3em] text-gray-800 uppercase">Projects</h2>
+                </div>
+
+                <div class="flex flex-wrap -mx-4 items-start">
+                    <div
+                        class="w-full md:w-1/2 px-4 space-y-16 sm:space-y-28 md:mt-12">
+                        <div class="group cursor-pointer">
+                            <div
+                                class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200">
+                                <img
+                                    src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg"
+                                    alt="Project Eco Oasis"
+                                    class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                            </div>
+                            <div class="text-left">
+                                <p
+                                    class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Residential
+                                    / Cloud Smart Tower</p>
+                                <h4
+                                    class="text-xl tracking-wider text-gray-800 mb-1 font-light">Cloud
+                                    Smart Tower</h4>
+                                <p
+                                    class="text-gray-500 text-sm tracking-[0.2em]">磐鈺雲華
+                                    ｜ 綠意永續建築</p>
+                            </div>
+                        </div>
+
+                        <div class="group cursor-pointer">
+                            <div
+                                class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200">
+                                <img
+                                    src="https://images.pexels.com/photos/273683/pexels-photo-273683.jpeg"
+                                    alt="Project Minimalist"
+                                    class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                            </div>
+                            <div class="text-left">
+                                <p
+                                    class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Interior
+                                    / Creative Hub</p>
+                                <h4
+                                    class="text-xl tracking-wider text-gray-800 mb-1 font-light">The
+                                    Fluid Studio</h4>
+                                <p
+                                    class="text-gray-500 text-sm tracking-[0.2em]">光影與幾何美學空間</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-1/2 px-4 space-y-16 sm:space-y-28 mt-16 md:mt-0">
+                        <div class="group cursor-pointer">
+                            <div
+                                class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200">
+                                <img
+                                    src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg"
+                                    alt="Project Urban Concept"
+                                    class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                            </div>
+                            <div class="text-left">
+                                <p
+                                    class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Commercial
+                                    / Public Pavilion</p>
+                                <h4
+                                    class="text-xl tracking-wider text-gray-800 mb-1 font-light">Breathe
+                                    Pavilion</h4>
+                                <p
+                                    class="text-gray-500 text-sm tracking-[0.2em]">公共藝術景觀軸帶</p>
+                            </div>
+                        </div>
+
+                        <div class="group cursor-pointer">
+                            <div
+                                class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200">
+                                <img
+                                    src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
+                                    alt="Project Structural View"
+                                    class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                            </div>
+                            <div class="text-left">
+                                <p
+                                    class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Architecture
+                                    / Prototype House</p>
+                                <h4
+                                    class="text-xl tracking-wider text-gray-800 mb-1 font-light">Stone
+                                    Core Villa</h4>
+                                <p
+                                    class="text-gray-500 text-sm tracking-[0.2em]">原石共生安居計畫</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news"
+            class="relative w-full min-h-[600px] flex items-center justify-end overflow-hidden font-zhimo">
+            <div class="absolute inset-0 z-0">
+                <img
+                    src="https://images.pexels.com/photos/20697449/pexels-photo-20697449.jpeg"
+                    alt="Urban View" class="w-full h-full object-cover">
+                <div
+                    class="absolute inset-0 bg-black/20 md:bg-transparent md:bg-gradient-to-l md:from-black/40 md:to-transparent"></div>
+            </div>
+
+            <div class="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
+                <div class="max-w-xl ml-auto text-white">
+                    <div class="mb-10">
+                        <p
+                            class="text-lg tracking-[0.4em] mb-3 opacity-90">經營記事</p>
+                        <h2
+                            class="text-5xl sm:text-6xl font-bold tracking-[0.2em] uppercase">News</h2>
+                    </div>
+
+                    <div
+                        class="space-y-8 text-sm sm:text-base tracking-[0.15em] leading-relaxed opacity-90">
+                        <p>
+                            好事情和好夥伴一起體會。好訊息也要和好夥伴一起分享，我們希望透過分享的力量，讓這份喜悅加深與傳承，擴大到每一個角落。
+                        </p>
+                        <p>
+                            磐鈺每個月都會不定時更新公司的最新訊息和近況與大家分享，藉由分享的方式與您交流，讓您與我們更同心，一同創造更美好的存在與價值。
+                        </p>
+                    </div>
+
+                    <div class="mt-12">
+                        <a href="#"
+                            class="group inline-flex items-center text-white tracking-[0.2em] text-sm font-bold uppercase border-b border-white/30 pb-1 hover:border-white transition-colors duration-500">
+                            Read More
+                            <span
+                                class="ml-3 transform group-hover:translate-x-2 transition-transform duration-300">——</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="absolute right-6 bottom-10 flex flex-col items-center group">
+                <div
+                    class="border border-white p-1 mb-2 group-hover:bg-white transition-colors duration-300">
+                    <svg class="w-3 h-3 text-white group-hover:text-gray-800"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                </div>
+                <span
+                    class="text-white text-[10px] tracking-[0.3em] [writing-mode:vertical-lr] uppercase">Top</span>
+            </div>
+        </section>
+
+        <footer
+            class="bg-[#ebebeb] text-[#555555] font-sans border-t border-gray-300/50 pt-20 pb-12 px-6 sm:px-12 md:px-24">
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:justify-between items-start gap-12 lg:gap-6">
+
+                <div class="space-y-4 max-w-sm">
+                    <h3
+                        class="font-nav text-2xl font-medium tracking-[0.2em] text-gray-800 uppercase">Golden
+                        Jade</h3>
+                    <p
+                        class="text-xs tracking-[0.1em] text-gray-400 leading-relaxed uppercase">
+                        Construction & Development Corporation.<br>
+                        Realizing green visions within architectural frameworks.
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-wrap gap-x-16 gap-y-8 text-xs sm:text-sm tracking-[0.12em]">
+                    <div>
+                        <h4
+                            class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-2 font-medium">Headquarters
+                            / 總部</h4>
+                        <p class="text-gray-700">台中市南屯區大墩十二街258號</p>
+                        <p class="text-gray-400 text-xs mt-1">No. 258, Dadun
+                            12th St, Nantun District, Taichung</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-2 font-medium">Contact
+                            Channel / 聯繫方式</h4>
+                        <p class="text-gray-700">T ｜ 04-2254-5388</p>
+                        <p class="text-gray-700">E ｜ info@goldenjade.com.tw</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <a href="#"
+                        class="w-8 h-8 border border-gray-400 flex items-center justify-center text-gray-600 hover:bg-gray-800 hover:text-white transition-colors rounded-none">
+                        <span class="text-xs font-bold">f</span>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 border border-gray-400 flex items-center justify-center text-gray-600 hover:bg-gray-800 hover:text-white transition-colors rounded-none">
+                        <span class="text-sm">📷</span>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-300/40 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 tracking-[0.15em] uppercase gap-4">
+                <p>© 2026 Golden Jade Group All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#"
+                        class="hover:text-gray-600 transition-colors">Privacy
+                        Policy</a>
+                    <a href="#"
+                        class="hover:text-gray-600 transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        const menuOpenBtn = document.getElementById('menu-open');
+        const menuCloseBtn = document.getElementById('menu-close');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        // Drawer slider open triggers
+        menuOpenBtn.addEventListener('click', () => {
+            mobileOverlay.classList.remove('translate-x-full');
+        });
+
+        // Drawer slider close action fixed assignment syntax
+        menuCloseBtn.addEventListener('click', () => {
+            mobileOverlay.classList.add('translate-x-full');
+        });
+
+        // Close when layout navigation paths item elements are targeted
+        document.querySelectorAll('#mobile-overlay nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileOverlay.classList.add('translate-x-full');
+            });
+        });
+    </script>
+    </body>
+</html>
