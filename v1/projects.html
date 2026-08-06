@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        .font-nav, .font-zhimo {
+            font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#ebebeb] font-nav text-gray-800 antialiased">
+
+    <header class="w-full bg-[#ebebeb] border-b border-gray-200 relative z-40 px-6 sm:px-12 py-5 sm:py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-gray-700 text-xl sm:text-2xl font-medium tracking-[0.2em] uppercase select-none">
+                KUAN NYI
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-[13px] tracking-[0.15em] font-medium text-gray-600 uppercase">
+                <a href="index.html#about" class="hover:text-gray-900 transition-colors">About</a>
+                <a href="index.html#news" class="hover:text-gray-900 transition-colors">News</a>
+                <a href="projects.html" class="text-[#4caf50] flex items-center transition-colors">
+                    Projects
+                    <svg class="w-3 h-3 ml-1 stroke-current" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <a href="#timeline" class="hover:text-gray-900 transition-colors">Timeline</a>
+                <a href="#foundation" class="hover:text-gray-900 transition-colors">Foundation</a>
+                <a href="#esg" class="hover:text-gray-900 transition-colors">ESG</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-2">
+                <a href="https://www.facebook.com" target="_blank" class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                    <span class="text-xs font-bold font-sans">f</span>
+                </a>
+                <a href="#" class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                    <span class="text-sm font-sans">📷</span>
+                </a>
+            </div>
+
+            <button id="menu-open" class="lg:hidden w-10 h-10 bg-gray-400/80 hover:bg-gray-400 flex flex-col justify-center items-center space-y-1.5 focus:outline-none transition-colors">
+                <span class="block w-5 h-[1.5px] bg-white"></span>
+                <span class="block w-5 h-[1.5px] bg-white"></span>
+                <span class="block w-5 h-[1.5px] bg-white"></span>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-overlay" class="fixed inset-0 z-50 bg-[#ebebeb] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 sm:p-12 overflow-y-auto">
+        <div class="flex justify-end">
+            <button id="menu-close" class="text-gray-600 hover:text-gray-900 p-2 text-2xl focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center my-auto space-y-6 text-xl sm:text-2xl tracking-[0.2em] font-medium text-gray-800 uppercase">
+            <a href="index.html#about">About</a>
+            <a href="index.html#news">News</a>
+            <a href="projects.html" class="flex items-center group text-[#4caf50]">
+                Projects
+                <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <a href="#timeline">Timeline</a>
+            <a href="#foundation">Foundation</a>
+            <a href="#esg">ESG</a>
+        </nav>
+        <div class="w-full max-w-md mx-auto pt-8 border-t border-gray-300/60 text-left space-y-4 text-xs tracking-widest text-gray-500 font-sans font-light">
+            <p>A ｜ 高雄市前金區中正四路130號</p>
+            <p>T ｜ 07-288-6667</p>
+        </div>
+    </div>
+
+    <section class="bg-[#ebebeb] pt-20 pb-12 px-6 sm:px-12 md:px-20 font-sans">
+        <div class="max-w-7xl mx-auto border-b border-gray-300/60 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+                <p class="text-gray-500 text-sm tracking-[0.4em] mb-2 font-medium">歷年業績</p>
+                <h1 class="font-nav text-5xl sm:text-6xl font-normal tracking-[0.05em] text-[#1a1a1a] uppercase leading-none">
+                    Our Projects
+                </h1>
+            </div>
+
+            <div class="flex flex-wrap gap-x-8 gap-y-3 text-xs sm:text-sm tracking-[0.2em] font-medium text-gray-500 uppercase pt-4 md:pt-0">
+                <button class="text-[#4caf50] border-b border-[#4caf50] pb-1 cursor-pointer">All</button>
+                <button class="hover:text-gray-900 pb-1 transition-colors cursor-pointer">Residential</button>
+                <button class="hover:text-gray-900 pb-1 transition-colors cursor-pointer">Commercial</button>
+                <button class="hover:text-gray-900 pb-1 transition-colors cursor-pointer">Classic Legacy</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 sm:py-20 bg-[#ebebeb] font-zhimo">
+        <div class="container max-w-7xl mx-auto px-6 sm:px-12">
+
+            <div class="flex flex-wrap -mx-4 items-start">
+
+                <div class="w-full md:w-1/2 px-4 space-y-16 sm:space-y-28 md:mt-12">
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg" alt="冠億 本植" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Kaohsiung University District / Apartment</p>
+                            <h4 class="text-xl tracking-wider text-gray-800 mb-1 font-light group-hover:text-gray-600 transition-colors">冠億 本植</h4>
+                            <p class="text-gray-500 text-sm tracking-[0.2em]">高大特區 ｜ 取鏡自然的植感宜居宅</p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/273683/pexels-photo-273683.jpeg" alt="冠藝 I 號作" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Nanzi District / Residential</p>
+                            <h4 class="text-xl tracking-wider text-gray-800 mb-1 font-light group-hover:text-gray-600 transition-colors">冠藝 I 號作</h4>
+                            <p class="text-gray-500 text-sm tracking-[0.2em]">大學路零店面 ｜ 飯店式節能人文大樓</p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg" alt="經典業績" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Qianjin District / City Center Landmark</p>
+                            <h4 class="text-xl tracking-wider text-gray-800 mb-1 font-light group-hover:text-gray-600 transition-colors">冠億 中正美學</h4>
+                            <p class="text-gray-500 text-sm tracking-[0.2em]">市中心核心地段 ｜ 頂級工藝人文地標</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w-full md:w-1/2 px-4 space-y-16 sm:space-y-28 mt-16 md:mt-0">
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg" alt="冠藝 II 號作" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Park Side / Premium Residence</p>
+                            <h4 class="text-xl tracking-wider text-gray-800 mb-1 font-light group-hover:text-gray-600 transition-colors">冠藝 II 號作</h4>
+                            <p class="text-gray-500 text-sm tracking-[0.2em]">正對極限公園 ｜ 日式風格光纖美學大樓</p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="獨棟別墅經典" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-[#4caf50] mb-2 uppercase">Luxury Villa / Bespoke Design</p>
+                            <h4 class="text-xl tracking-wider text-gray-800 mb-1 font-light group-hover:text-gray-600 transition-colors">冠億 經典透天別墅</h4>
+                            <p class="text-gray-500 text-sm tracking-[0.2em]">嚴選頂級建材 ｜ 精工細作獨棟美學墅</p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-6 aspect-[4/3] bg-gray-200 shadow-sm">
+                            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="光合建築" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                        </div>
+                        <div class="text-left px-1">
+                            <p class="text-[11px] tracking-widest text-

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Oswald:wght@300;400;500&display=swap"
+            rel="stylesheet">
+
+        <style>
+        .font-nav, .font-zhimo {
+            font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+        }
+    </style>
+    </head>
+    <body class="bg-[#ebebeb] font-nav text-gray-800 antialiased">
+
+        <header
+            class="w-full bg-[#ebebeb] border-b border-gray-200 relative z-40 px-6 sm:px-12 py-5 sm:py-6">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <a href="index.html"
+                    class="text-gray-700 text-xl sm:text-2xl font-medium tracking-[0.2em] uppercase select-none">
+                    KUAN NYI
+                </a>
+
+                <nav
+                    class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-[13px] tracking-[0.15em] font-medium text-gray-600 uppercase">
+                    <a href="about.html"
+                        class="text-[#4caf50] flex items-center transition-colors">
+                        About
+                        <svg class="w-3 h-3 ml-1 stroke-current" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </a>
+                    <a href="index.html#news"
+                        class="hover:text-gray-900 transition-colors">News</a>
+                    <a href="projects.html"
+                        class="hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="#timeline"
+                        class="hover:text-gray-900 transition-colors">Timeline</a>
+                    <a href="#foundation"
+                        class="hover:text-gray-900 transition-colors">Foundation</a>
+                    <a href="#esg"
+                        class="hover:text-gray-900 transition-colors">ESG</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="https://www.facebook.com" target="_blank"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span class="text-xs font-bold font-sans">f</span>
+                    </a>
+                    <a href="#"
+                        class="w-7 h-7 border border-gray-500 flex items-center justify-center text-gray-600 hover:bg-gray-700 hover:text-white transition-colors">
+                        <span class="text-sm font-sans">📷</span>
+                    </a>
+                </div>
+
+                <button id="menu-open"
+                    class="lg:hidden w-10 h-10 bg-gray-400/80 hover:bg-gray-400 flex flex-col justify-center items-center space-y-1.5 focus:outline-none transition-colors">
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                    <span class="block w-5 h-[1.5px] bg-white"></span>
+                </button>
+            </div>
+        </header>
+
+        <div id="mobile-overlay"
+            class="fixed inset-0 z-50 bg-[#ebebeb] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 sm:p-12 overflow-y-auto">
+            <div class="flex justify-end">
+                <button id="menu-close"
+                    class="text-gray-600 hover:text-gray-900 p-2 text-2xl focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav
+                class="flex flex-col items-center justify-center my-auto space-y-6 text-xl sm:text-2xl tracking-[0.2em] font-medium text-gray-800 uppercase">
+                <a href="about.html" class="text-[#4caf50]">About</a>
+                <a href="index.html#news">News</a>
+                <a href="projects.html">Projects</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#foundation">Foundation</a>
+                <a href="#esg">ESG</a>
+            </nav>
+            <div
+                class="w-full max-w-md mx-auto pt-8 border-t border-gray-300/60 text-left space-y-4 text-xs tracking-widest text-gray-500 font-sans font-light">
+                <p>A ｜ 高雄市前金區中正四路130號</p>
+                <p>T ｜ 07-288-6667</p>
+            </div>
+        </div>
+
+        <section
+            class="bg-[#ebebeb] pt-20 pb-12 px-6 sm:px-12 md:px-20 font-sans">
+            <div class="max-w-7xl mx-auto border-b border-gray-300/60 pb-12">
+                <p
+                    class="text-gray-500 text-xs sm:text-sm tracking-[0.4em] mb-3 uppercase font-medium">About
+                    Kuan Nyi</p>
+                <h1
+                    class="font-nav text-5xl sm:text-6xl md:text-7xl font-normal tracking-[0.05em] text-[#1a1a1a] uppercase leading-none mb-8">
+                    關於冠億
+                </h1>
+                <p
+                    class="text-gray-600 text-sm sm:text-base tracking-[0.2em] leading-relaxed max-w-2xl font-light">
+                    從一顆真誠的心出發，將每塊土地、每棟建築視為藝術品。我們不追求複製，只追求為城市留下獨一無二的生命力。
+                </p>
+            </div>
+        </section>
+
+        <section
+            class="py-16 sm:py-24 bg-[#ebebeb] font-sans px-6 sm:px-12 md:px-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span
+                        class="text-[#4caf50] text-xs tracking-[0.3em] uppercase block mb-2 font-semibold">Philosophy</span>
+                    <h2
+                        class="text-3xl tracking-[0.2em] text-gray-800 font-normal">建築理念</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
+                    <div
+                        class="bg-[#ececec] p-8 sm:p-10 shadow-sm border-t-2 border-gray-300">
+                        <span
+                            class="text-gray-400 text-xs tracking-widest block mb-4 uppercase">01
+                            / Focus</span>
+                        <h3
+                            class="text-xl font-medium tracking-wider text-gray-800 mb-4">作品重質不重量<br>一次只專注一案</h3>
+                        <p
+                            class="text-gray-500 text-sm tracking-wide leading-relaxed font-light">
+                            本著打造質感住宅的初衷，冠億作品量少質精，推案節奏寧慢不求快，堅持慢工釀細活。唯有專一才能凝神，精雕細琢每一件作品。
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-[#ececec] p-8 sm:p-10 shadow-sm border-t-2 border-[#4caf50]">
+                        <span
+                            class="text-[#4caf50] text-xs tracking-widest block mb-4 uppercase">02
+                            / Essence</span>
+                        <h3
+                            class="text-xl font-medium tracking-wider text-gray-800 mb-4">建築本質<br>採光
+                            ‧ 通風 ‧ 安全</h3>
+                        <p
+                            class="text-gray-500 text-sm tracking-wide leading-relaxed font-light">
+                            上質生活舒適宅規劃重視「綠色風水」，講求採光、通風、動線良好。從平面設計之初就反覆推推敲，深慮規劃實用機能與細節美學。
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-[#ececec] p-8 sm:p-10 shadow-sm border-t-2 border-gray-300">
+                        <span
+                            class="text-gray-400 text-xs tracking-widest block mb-4 uppercase">03
+                            / Sustainability</span>
+                        <h3
+                            class="text-xl font-medium tracking-wider text-gray-800 mb-4">永續傳承<br>兩代連枝的初心薪傳</h3>
+                        <p
+                            class="text-gray-500 text-sm tracking-wide leading-relaxed font-light">
+                            建築是冠億二代共同的終生職志！創業一代匯聚專注本業的經驗深度，交棒中堅第二代繼續發揚，傳承過去、落實現在、創造未來。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="py-16 sm:py-24 bg-[#ececec] font-sans px-6 sm:px-12 md:px-20">
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+                <div
+                    class="w-full lg:w-1/2 aspect-[4/3] overflow-hidden bg-gray-200 shadow-sm">
+                    <img
+                        src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg"
+                        alt="冠億營建工藝" class="w-full h-full object-cover">
+                </div>
+
+                <div class="w-full lg:w-1/2 space-y-8">
+                    <div>
+                        <span
+                            class="text-[#4caf50] text-xs tracking-[0.3em] uppercase block mb-2 font-semibold">History
+                            & Quality</span>
+                        <h2
+                            class="text-3xl tracking-[0.2em] text-gray-800 font-normal">穩健如一的建築舵手</h2>
+                    </div>
+
+                    <div
+                        class="space-y-6 text-gray-600 text-sm sm:text-base tracking-wide leading-relaxed font-light">
+                        <div>
+                            <h4
+                                class="font-medium text-gray-800 mb-1">20年的建築腳步</h4>
+                            <p
+                                class="text-sm text-gray-500">自2000年成立至今，秉持誠心、用心的初衷，築造實實在在的好房子，賦予每個作品獨一無二的生命力。</p>
+                        </div>
+                        <div>
+                            <h4
+                                class="font-medium text-gray-800 mb-1">甲級冠偉營造嚴密把關</h4>
+                            <p class="text-sm

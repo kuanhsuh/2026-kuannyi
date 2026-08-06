@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>冠億建設</title>
+        <!-- 引入 Google Fonts: Noto Serif TC & Noto Sans TC -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <!-- 引入 Swiper CSS (輪播套件) -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <!-- 引入 Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#E9E6E1',      /* 微調米灰色背景 */
+                        'brand-brown': '#6B604B',   /* 經典橄欖棕色塊 */
+                        'brand-dark': '#222222',    /* 主要文字顏色 */
+                        'brand-gray': '#7A7A7A',    /* 次要文字顏色 */
+                        'brand-light': '#F4F2EF'    /* 輕米色 */
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif TC"', 'serif'],
+                        'sans': ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        body {
+            background-color: #E9E6E1;
+            color: #222222;
+            overflow-x: hidden;
+        }
+
+        /* 夕陽城市背景圖片 */
+        .bg-sunset {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502003148287-a82ef80a6abc?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navbar Active 狀態白底樣式 */
+        .nav-active {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        .nav-item:not(.nav-active):hover {
+            opacity: 0.65;
+        }
+
+        /* 拱門形狀按鈕 (Top Round Arch) */
+        .arch-btn {
+            border-radius: 999px 999px 0 0;
+        }
+
+        /* Swiper 客製化：歷程區塊允許滑塊寬度由內容決定 */
+        .journey-swiper .swiper-slide {
+            width: auto;
+        }
+
+        /* Swiper Hero 輪播點點樣式微調 */
+        .hero-swiper .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.5;
+        }
+        .hero-swiper .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #ffffff;
+            width: 24px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+    </style>
+    </head>
+    <body class="font-sans text-brand-dark antialiased">
+
+        <!-- 1. 導覽列 Navbar -->
+        <header
+            class="sticky top-0 w-full z-50 transition-all duration-300 bg-brand-bg/95 backdrop-blur-sm">
+            <div
+                class="max-w-[1600px] mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <div
+                        class="w-9 h-9 bg-brand-brown rounded flex items-center justify-center text-white font-serif font-bold text-lg">
+                        冠
+                    </div>
+                    <span
+                        class="text-xl md:text-2xl tracking-[0.15em] font-serif font-semibold text-black">冠億建設</span>
+                </a>
+
+                <!-- 電腦版選單 -->
+                <nav class="hidden md:flex items-center">
+                    <a href="#"
+                        class="nav-item nav-active flex flex-col items-center justify-center px-7 py-3">
+                        <span
+                            class="text-black font-serif tracking-[0.15em] text-[15px] mb-1">關於冠億</span>
+                        <span
+                            class="text-[#999] font-serif tracking-[0.2em] text-[10px] uppercase">ABOUT</span>
+                    </a>
+
+                    <span
+                        class="text-[#C4BCB3] mx-1 font-light text-lg">/</span>
+
+                    <a href="#"
+                        class="nav-item flex flex-col items-center justify-center px-7 py-3">
+                        <span
+                            class="text-[#333] font-serif tracking-[0.15em] text-[15px] mb-1">新案鑑賞</span>
+                        <span
+                            class="text-[#999] font-serif tracking-[0.2em] text-[10px] uppercase">LATEST
+                            PROJECT</span>
+                    </a>
+
+                    <span
+                        class="text-[#C4BCB3] mx-1 font-light text-lg">/</span>
+
+                    <a href="#"
+                        class="nav-item flex flex-col items-center justify-center px-7 py-3">
+                        <span
+                            class="text-[#333] font-serif tracking-[0.15em] text-[15px] mb-1">經典實績</span>
+                        <span
+                            class="text-[#999] font-serif tracking-[0.2em] text-[10px] uppercase">ALL
+                            PROJECTS</span>
+                    </a>
+
+                    <span
+                        class="text-[#C4BCB3] mx-1 font-light text-lg">/</span>
+
+                    <a href="#"
+                        class="nav-item flex flex-col items-center justify-center px-7 py-3">
+                        <span
+                            class="text-[#333] font-serif tracking-[0.15em] text-[15px] mb-1">聯絡我們</span>
+                        <span
+                            class="text-[#999] font-serif tracking-[0.2em] text-[10px] uppercase">CONTACT</span>
+                    </a>
+                </nav>
+
+                <!-- 手機版漢堡選單按鈕 -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden flex flex-col space-y-1.5 focus:outline-none p-2">
+                    <span
+                        class="w-6 h-0.5 bg-brand-dark transition-all duration-300"></span>
+                    <span
+                        class="w-6 h-0.5 bg-brand-dark transition-all duration-300"></span>
+                    <span
+                        class="w-6 h-0.5 bg-brand-dark transition-all duration-300"></span>
+                </button>
+            </div>
+
+            <!-- 手機版展開選單 -->
+            <div id="mobile-menu"
+                class="hidden md:hidden bg-brand-bg border-t border-gray-300/50">
+                <div class="px-6 py-6 flex flex-col space-y-5 text-center">
+                    <a href="#"
+                        class="text-brand-brown font-serif tracking-[0.15em]">關於冠億
+                        <span
+                            class="block text-xs text-gray-400 font-sans mt-0.5">ABOUT</span></a>
+                    <a href="#"
+                        class="text-brand-dark font-serif tracking-[0.15em]">新案鑑賞
+                        <span
+                            class="block text-xs text-gray-400 font-sans mt-0.5">LATEST
+                            PROJECT</span></a>
+                    <a href="#"
+                        class="text-brand-dark font-serif tracking-[0.15em]">經典實績
+                        <span
+                            class="block text-xs text-gray-400 font-sans mt-0.5">ALL
+                            PROJECTS</span></a>
+                    <a href="#"
+                        class="text-brand-dark font-serif tracking-[0.15em]">聯絡我們
+                        <span
+                            class="block text-xs text-gray-400 font-sans mt-0.5">CONTACT</span></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. 主視覺 Hero 輪播區塊 (Swiper Hero Section) -->
+        <section class="relative w-full h-[65vh] md:h-[80vh] overflow-hidden">
+            <div class="swiper hero-swiper w-full h-full">
+                <div class="swiper-wrapper">
+
+                    <!-- Hero Slide 1 (對照圖片 image_e82a29.jpg 客廳風格) -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000');"></div>
+                        <div
+                            class="relative max-w-[1600px] mx-auto px-6 md:px-16 w-full h-full flex items-end pb-16 md:pb-24">
+                            <div>
+                                <h1
+                                    class="text-white font-serif text-3xl md:text-5xl font-light tracking-[0.2em] mb-4 drop-shadow-md">
+                                    建築是生活的容器
+                                </h1>
+                                <p
+                                    class="text-white/80 font-serif text-xs md:text-sm tracking-[0.25em] uppercase">
+                                    Architecture is a container for life.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Slide 2 -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000');"></div>
+                        <div
+                            class="relative max-w-[1600px] mx-auto px-6 md:px-16 w-full h-full flex items-end pb-16 md:pb-24">
+                            <div>
+                                <h1
+                                    class="text-white font-serif text-3xl md:text-5xl font-light tracking-[0.2em] mb-4 drop-shadow-md">
+                                    靜謐中的極致工藝
+                                </h1>
+                                <p
+                                    class="text-white/80 font-serif text-xs md:text-sm tracking-[0.25em] uppercase">
+                                    Craftsmanship in Quiet Elegance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Slide 3 -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2000');"></div>
+                        <div
+                            class="relative max-w-[1600px] mx-auto px-6 md:px-16 w-full h-full flex items-end pb-16 md:pb-24">
+                            <div>
+                                <h1
+                                    class="text-white font-serif text-3xl md:text-5xl font-light tracking-[0.2em] mb-4 drop-shadow-md">
+                                    留白，讓心棲息
+                                </h1>
+                                <p
+                                    class="text-white/80 font-serif text-xs md:text-sm tracking-[0.25em] uppercase">
+                                    Space for the soul to rest.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 底部分頁圓點 -->
+                <div class="swiper-pagination !bottom-8 md:!bottom-12"></div>
+            </div>
+        </section>
+
+        <!-- 3. 理念區塊 Ethos Section (Swiper 圖片與標題連動) -->
+        <section
+            class="max-w-[1700px] w-full mx-auto my-16 md:my-28 px-6 md:pl-16 md:pr-0">
+            <div
+                class="flex flex-col md:flex-row w-full min-h-[550px] md:h-[620px] relative">
+
+                <!-- 左側：Swiper 輪播大圖容器與箭頭按鈕 -->
+                <div
+                    class="w-full md:w-[68%] relative h-[380px] md:h-full group">
+
+                    <!-- Swiper 圖片主體 -->
+                    <div class="swiper ethos-swiper w-full h-full">
+                        <div class="swiper-wrapper">
+
+                            <!-- Ethos Slide 1 (對照圖片 image_e82a04.jpg 手繪圖紙風格) -->
+                            <div class="swiper-slide relative w-full h-full">
+                                <img
+                                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                                    alt="設計理念 1"
+                                    class="w-full h-full object-cover shadow-sm">
+                                <div
+                                    class="absolute bottom-8 left-8 md:bottom-14 md:left-14 text-white/95 font-serif tracking-[0.2em] text-base md:text-lg drop-shadow z-10">
+                                    一開始就決定走不同的路
+                                </div>
+                            </div>
+
+                            <!-- Ethos Slide 2 -->
+                            <div class="swiper-slide relative w-full h-full">
+                                <img
+                                    src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80"
+                                    alt="設計理念 2"
+                                    class="w-full h-full object-cover shadow-sm">
+                                <div
+                                    class="absolute bottom-8 left-8 md:bottom-14 md:left-14 text-white/95 font-serif tracking-[0.2em] text-base md:text-lg drop-shadow z-10">
+                                    專注於細節的雕琢與淬鍊
+                                </div>
+                            </div>
+
+                            <!-- Ethos Slide 3 -->
+                            <div class="swiper-slide relative w-full h-full">
+                                <img
+                                    src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1600&q=80"
+                                    alt="設計理念 3"
+                                    class="w-full h-full object-cover shadow-sm">
+                                <div
+                                    class="absolute bottom-8 left-8 md:bottom-14 md:left-14 text-white/95 font-serif tracking-[0.2em] text-base md:text-lg drop-shadow z-10">
+                                    構築永恆經典的建築語彙
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 圖片右下角雙箭頭切換按鈕 (對照 image_e82a04.jpg 位置與樣式) -->
+                    <div
+                        class="absolute bottom-8 right-8 md:bottom-14 md:right-14 z-20 flex items-center space-x-6 text-white/80">
+                        <button id="ethos-prev"
+                            class="hover:text-white transition-transform hover:-translate-x-1 focus:outline-none cursor-pointer"
+                            aria-label="Previous Ethos Slide">
+                            <svg width="42" height="18" viewBox="0 0 42 18"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.2">
+                                <path
+                                    d="M10 9 L42 9 M10 9 L18 1 M10 9 L18 17" />
+                            </svg>
+                        </button>
+                        <button id="ethos-next"
+                            class="hover:text-white transition-transform hover:translate-x-1 focus:outline-none cursor-pointer"
+                            aria-label="Next Ethos Slide">
+                            <svg width="42" height="18" viewBox="0 0 42 18"
+                                fill="none" stroke="currentColor"
+                                stroke-width="1.2">
+                                <path d="M0 9 L32 9 M32 9 L24 1 M32 9 L24 17" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- 右側：理念色塊與說明內文 -->
+                <div
+                    class="w-full md:w-[32%] relative flex flex-col justify-between pt-8 md:pt-0">
+
+                    <!-- 理念色塊 -->
+                    <div
+                        class="relative md:absolute md:top-0 w-44 h-44 md:w-60 md:h-60 bg-brand-brown z-10 flex flex-col items-center justify-center text-white shadow-md mb-8 md:mb-0">
+                        <h2
+                            class="text-2xl md:text-3xl font-serif tracking-[0.3em] mb-2 ml-1">理念</h2>
+                        <span
+                            class="text-[11px] font-serif tracking-[0.25em] uppercase text-white/80">ETHOS</span>
+                    </div>
+
+                    <!-- 右下內文段落 -->
+                    <div class="md:absolute md:bottom-14 md:left-16 md:right-8">
+                        <p
+                            class="text-[#444] font-serif tracking-[0.22em] leading-[2.6] text-sm md:text-[15px]">
+                            一次只專注一個案子<br>
+                            因為深信唯有專一才能凝神<br>
+                            把建築做好，是再自然不過的事
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. 美學區塊 Aesthetics Section -->
+        <section
+            class="max-w-[1600px] w-full mx-auto my-20 md:my-32 px-6 md:px-16">
+            <div
+                class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+                <div
+                    class="w-full md:w-2/5 flex flex-col items-center md:items-start text-center md:text-left">
+                    <div
+                        class="w-44 h-44 md:w-56 md:h-56 bg-brand-brown flex flex-col items-center justify-center text-white shadow-md mb-8 md:mb-12">
+                        <h2
+                            class="text-2xl md:text-3xl font-serif tracking-[0.3em] mb-2 ml-1">本值</h2>
+                        <span
+                            class="text-[11px] font-serif tracking-[0.25em] uppercase text-white/80">ESSENTIAL</span>
+                    </div>
+                    <h3
+                        class="font-serif text-xl md:text-2xl tracking-[0.2em] mb-4 text-brand-dark">選擇是一種智慧</h3>
+                    <p
+                        class="font-serif text-sm md:text-base text-brand-gray tracking-[0.18em] leading-relaxed max-w-sm">
+                        能做豪宅,是一種能力<br>
+                        不做首購,是一種定位<br>
+                        冠億將住宅設定為菁英人士首選<br><br><br>
+                        他們是各領域專家,對生活品質要求不低 他們看得見愈細微,愈見不凡的品味<br>
+                        我們專注在這領域,自然與他們產生契合<br>
+                    </p>
+                </div>
+
+                <div class="w-full md:w-3/5">
+                    <img
+                        src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200"
+                        alt="美學生活"
+                        class="w-full h-[380px] md:h-[550px] object-cover shadow-sm">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 歷程 / 時間軸 Swiper 輪播區塊 (Carousel Journey Section) -->
+        <section class="pt-16 md:pt-28 relative overflow-hidden">
+
+            <!-- Swiper 主容器 -->
+            <div class="swiper journey-swiper w-full !px-8 md:!px-24">
+                <div class="swiper-wrapper flex items-center">
+
+                    <!-- 輪播項目 1 -->
+                    <div
+                        class="swiper-slide !w-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 pr-8 md:pr-16">
+                        <div class="w-64 md:w-80 flex-shrink-0">
+                            <div class="relative mb-2">
+                                <div
+                                    class="font-serif text-5xl md:text-7xl text-[#4A4237]/90 tracking-tight leading-none">00.</div>
+                                <div
+                                    class="font-serif text-3xl md:text-4xl tracking-[0.15em] text-[#9E9487] uppercase font-light">JULY</div>
+                            </div>
+                            <div
+                                class="w-[1px] h-10 bg-[#8C8275]/50 my-4"></div>
+                            <p
+                                class="font-serif text-sm md:text-[15px] text-[#444] tracking-[0.2em] leading-[2.2]">
+                                打造質感住宅的初衷<br>
+                                追求慢不求快<br>
+                                慢工出細活
+                            </p>
+                        </div>
+                        <div
+                            class="w-[300px] sm:w-[380px] md:w-[500px] h-[260px] md:h-[400px] flex-shrink-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&q=80&w=800"
+                                alt="00. JULY"
+                                class="w-full h-full object-cover shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- 輪播項目 2 -->
+                    <div
+                        class="swiper-slide !w-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 pr-8 md:pr-16">
+                        <div class="w-64 md:w-80 flex-shrink-0">
+                            <div class="relative mb-2">
+                                <div
+                                    class="font-serif text-5xl md:text-7xl text-[#4A4237]/90 tracking-tight leading-none">20xx.</div>
+                                <div
+                                    class="font-serif text-3xl md:text-4xl tracking-[0.15em] text-[#9E9487] uppercase font-light">NOVEMBER</div>
+                            </div>
+                            <div
+                                class="w-[1px] h-10 bg-[#8C8275]/50 my-4"></div>
+                            <p
+                                class="font-serif text-sm md:text-[15px] text-[#444] tracking-[0.2em] leading-[2.2]">
+                                營建思維再升級<br>
+                                從土地的開發起<br>
+                                到建築規劃、營造施工等<br>
+                                從使用者出發<br>
+                                做精做細、認真每個細節
+                            </p>
+                        </div>
+                        <div
+                            class="w-[300px] sm:w-[380px] md:w-[500px] h-[260px] md:h-[400px] flex-shrink-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800"
+                                alt="20xx. NOVEMBER"
+                                class="w-full h-full object-cover shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- 輪播項目 3 -->
+                    <div
+                        class="swiper-slide !w-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 pr-8 md:pr-16">
+                        <div class="w-64 md:w-80 flex-shrink-0">
+                            <div class="relative mb-2">
+                                <div
+                                    class="font-serif text-5xl md:text-7xl text-[#4A4237]/90 tracking-tight leading-none">2026.</div>
+                                <div
+                                    class="font-serif text-3xl md:text-4xl tracking-[0.15em] text-[#9E9487] uppercase font-light">FUTURE</div>
+                            </div>
+                            <div
+                                class="w-[1px] h-10 bg-[#8C8275]/50 my-4"></div>
+                            <p
+                                class="font-serif text-sm md:text-[15px] text-[#444] tracking-[0.2em] leading-[2.2]">
+                                展望永續與綠意<br>
+                                持續為這座城市<br>
+                                構築世代共好的經典建築
+                            </p>
+                        </div>
+                        <div
+                            class="w-[300px] sm:w-[380px] md:w-[500px] h-[260px] md:h-[400px] flex-shrink-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"
+                                alt="2026. FUTURE"
+                                class="w-full h-full object-cover shadow-sm">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 輪播控制按鈕區 -->
+            <div
+                class="mt-16 md:mt-24 flex justify-center items-center gap-8 md:gap-20 select-none">
+
+                <!-- 上一張箭頭 -->
+                <button id="carousel-prev"
+                    class="group p-2 cursor-pointer focus:outline-none transition-opacity hover:opacity-75"
+                    aria-label="Previous Slide">
+                    <svg width="120" height="30" viewBox="0 0 120 30"
+                        fill="none" stroke="currentColor"
+                        class="text-[#6B604B] stroke-[1] group-hover:-translate-x-2 transition-transform">
+                        <path d="M25 15 L120 15 M25 15 L38 4 M25 15 L38 26" />
+                    </svg>
+                </button>
+
+                <!-- 中間拱門「歷程 / JOURNEY」標籤 -->
+                <div
+                    class="arch-btn bg-brand-brown text-white w-32 md:w-44 h-36 md:h-48 flex flex-col justify-center items-center shadow-md flex-shrink-0">
+                    <span
+                        class="font-serif text-lg md:text-xl tracking-[0.3em] mb-1 pl-1">歷程</span>
+                    <span
+                        class="font-serif text-[11px] tracking-[0.25em] uppercase text-white/80">JOURNEY</span>
+                </div>
+
+                <!-- 下一張箭頭 -->
+                <button id="carousel-next"
+                    class="group p-2 cursor-pointer focus:outline-none transition-opacity hover:opacity-75"
+                    aria-label="Next Slide">
+                    <svg width="120" height="30" viewBox="0 0 120 30"
+                        fill="none" stroke="currentColor"
+                        class="text-[#6B604B] stroke-[1] group-hover:translate-x-2 transition-transform">
+                        <path d="M0 15 L95 15 M95 15 L82 4 M95 15 L82 26" />
+                    </svg>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- 6. 城市願景 Banner (Sunset Section) -->
+        <section
+            class="w-full h-[500px] md:h-[580px] bg-sunset relative flex items-center justify-center text-center px-6">
+            <div class="max-w-3xl mx-auto text-white">
+                <h2
+                    class="font-serif text-2xl md:text-3xl tracking-[0.25em] mb-6 drop-shadow">
+                    這座城市 有你所愛的風景
+                </h2>
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <span class="w-8 h-[1px] bg-white/70"></span>
+                    <span
+                        class="font-serif tracking-[0.2em] text-sm md:text-base text-white/90">自然
+                        ‧ 共生 ‧ 共好</span>
+                    <span class="w-8 h-[1px] bg-white/70"></span>
+                </div>
+                <p
+                    class="font-serif text-xs md:text-sm tracking-[0.18em] leading-loose text-white/85">
+                    將自然景觀巧妙融入建築設計之中，打破室內外的界線。<br>
+                    每一扇窗，都是一幅流動的風景畫。<br>
+                    在繁華都市中，為您保留一片寧靜的綠洲。
+                </p>
+            </div>
+        </section>
+
+        <!-- 7. 頁尾 Footer -->
+        <footer
+            class="bg-brand-light py-16 px-6 md:px-16 border-t border-[#D8D2C8]">
+            <div
+                class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-sm tracking-[0.15em] text-brand-dark">
+                <div class="flex flex-col space-y-3">
+                    <h4
+                        class="font-serif text-lg text-brand-brown mb-2">Sitemap</h4>
+                    <a href="#"
+                        class="hover:text-brand-brown transition-colors">首頁</a>
+                    <a href="#"
+                        class="hover:text-brand-brown transition-colors">關於冠億</a>
+                    <a href="#"
+                        class="hover:text-brand-brown transition-colors">新案鑑賞</a>
+                    <a href="#"
+                        class="hover:text-brand-brown transition-colors">聯絡我們</a>
+                </div>
+
+                <div>
+                    <h4
+                        class="font-serif text-lg text-brand-brown mb-2">Contact</h4>
+                    <p class="text-brand-gray">聯絡我們</p>
+                </div>
+
+                <div class="flex flex-col space-y-2 text-brand-gray">
+                    <p>高雄市鼓山區美術東二路100號</p>
+                    <p>T. 07-555-5555</p>
+                    <p>F. 07-555-5556</p>
+                    <p>E. service@guanyi.com.tw</p>
+                </div>
+
+                <div
+                    class="flex flex-col justify-between items-start md:items-end">
+                    <div>
+                        <h4
+                            class="font-serif text-lg text-brand-brown mb-4">Follow
+                            Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="text-brand-brown hover:opacity-75 transition-opacity"
+                                aria-label="Facebook">
+                                <svg class="w-6 h-6" fill="currentColor"
+                                    viewBox="0 0 24 24"><path
+                                        d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" /></svg>
+                            </a>
+                            <a href="#"
+                                class="text-brand-brown hover:opacity-75 transition-opacity"
+                                aria-label="Instagram">
+                                <svg class="w-6 h-6" fill="currentColor"
+                                    viewBox="0 0 24 24"><path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-8 text-[11px] text-brand-gray tracking-normal">
+                        © 2026 冠億建設 All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- 引入 Swiper JS 套件 -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- JavaScript 初始化腳本 -->
+        <script>
+        // 1. 手機版選單開關
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // 2. 初始化 Hero 輪播 (淡入淡出 + 自動播放)
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            speed: 1000,
+            pagination: {
+                el: '.hero-swiper .swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // 3. 初始化 理念 (Ethos) 輪播
+        const ethosSwiper = new Swiper('.ethos-swiper', {
+            loop: true,
+            speed: 700,
+            grabCursor: true,
+            navigation: {
+                nextEl: '#ethos-next',
+                prevEl: '#ethos-prev',
+            },
+        });
+
+        // 4. 初始化 歷程 (Journey) 輪播
+        const journeySwiper = new Swiper('.journey-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+            grabCursor: true,
+            loop: false,
+            speed: 600,
+            navigation: {
+                nextEl: '#carousel-next',
+                prevEl: '#carousel-prev',
+            },
+        });
+    </script>
+    </body>
+</html>
