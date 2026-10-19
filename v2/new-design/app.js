@@ -1,16 +1,24 @@
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('#site-nav');
+const closeButton = nav?.querySelector('.menu-close');
+
+const closeMenu = () => {
+  nav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+};
 
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
 });
 
-document.querySelectorAll('#site-nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-  });
+closeButton.addEventListener('click', closeMenu);
+document.querySelectorAll('#site-nav a').forEach((link) => link.addEventListener('click', closeMenu));
+document.addEventListener('click', (event) => {
+  if (nav.classList.contains('open') && !nav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && nav.classList.contains('open')) closeMenu();
 });
 
 const setupCarousel = (selector, slideSelector, label) => {
@@ -40,14 +48,18 @@ const setupCarousel = (selector, slideSelector, label) => {
       status.textContent = `目前為第 ${currentSlide + 1} 張${label}，共 ${slides.length} 張。`;
     };
 
-    carousel.querySelector('.carousel-prev').addEventListener('click', () => showSlide(currentSlide - 1));
-    carousel.querySelector('.carousel-next').addEventListener('click', () => showSlide(currentSlide + 1));
+    const previousButton = carousel.querySelector('.carousel-prev');
+    const nextButton = carousel.querySelector('.carousel-next');
+    previousButton?.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
     showSlide(0);
   });
 };
 
 setupCarousel('.history-carousel', '.history-slide, .history-card', '歷程卡片');
 setupCarousel('.project-carousel', '.project-slide, .project-card', '實績卡片');
+setupCarousel('.hero-carousel', '.hero-slide', '首頁主視覺');
+setupCarousel('.desktop-hero-carousel', '.desktop-hero-slide', '首頁主視覺');
 
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => {
