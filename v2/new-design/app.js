@@ -53,6 +53,9 @@ const setupCarousel = (selector, slideSelector, label) => {
     previousButton?.addEventListener('click', () => showSlide(currentSlide - 1));
     nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
     showSlide(0);
+    if (carousel.matches('.hero-carousel') && window.matchMedia('(max-width: 1023px) and (prefers-reduced-motion: no-preference)').matches) {
+      window.setInterval(() => showSlide(currentSlide + 1), 1500);
+    }
   });
 };
 
@@ -60,6 +63,8 @@ setupCarousel('.history-carousel', '.history-slide, .history-card', '歷程卡�
 setupCarousel('.project-carousel', '.project-slide, .project-card', '實績卡片');
 setupCarousel('.hero-carousel', '.hero-slide', '首頁主視覺');
 setupCarousel('.desktop-hero-carousel', '.desktop-hero-slide', '首頁主視覺');
+setupCarousel('.essential-carousel', '.mobile-essential-slide', '本質圖片');
+setupCarousel('.journey-carousel', '.journey-card', '歷程卡片');
 
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => {
