@@ -66,6 +66,30 @@ setupCarousel('.desktop-hero-carousel', '.desktop-hero-slide', '首頁主視覺'
 setupCarousel('.essential-carousel', '.mobile-essential-slide', '本質圖片');
 setupCarousel('.journey-carousel', '.journey-card', '歷程卡片');
 
+const setupThreeUpHistoryCarousel = () => {
+  document.querySelectorAll('.desktop-history-carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.desktop-history-cards');
+    const cards = [...track.querySelectorAll('article')];
+    const status = carousel.querySelector('[aria-live]');
+    const visibleCards = 3;
+    const maxStart = Math.max(cards.length - visibleCards, 0);
+    let currentStart = 0;
+
+    const showCards = (index) => {
+      currentStart = (index + maxStart + 1) % (maxStart + 1);
+      track.style.transform = `translateX(-${cards[currentStart].offsetLeft}px)`;
+      status.textContent = `目前顯示第 ${currentStart + 1} 至第 ${currentStart + visibleCards} 筆歷程，共 ${cards.length} 筆。`;
+    };
+
+    carousel.querySelector('.carousel-prev')?.addEventListener('click', () => showCards(currentStart - 1));
+    carousel.querySelector('.carousel-next')?.addEventListener('click', () => showCards(currentStart + 1));
+    window.addEventListener('resize', () => showCards(currentStart));
+    showCards(0);
+  });
+};
+
+setupThreeUpHistoryCarousel();
+
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
