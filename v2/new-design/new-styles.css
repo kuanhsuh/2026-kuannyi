@@ -122,7 +122,7 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
   .desktop-nav > a[aria-current="page"] { background:rgba(255,255,255,.52); }
   .desktop-nav small { display:block; font-family:"Cormorant Garamond",serif; font-size:12px; letter-spacing:.18em; margin-top:7px; }
   .desktop-nav .desktop-logo { font-family:"Noto Sans TC",sans-serif; font-size:22px; font-weight:500; text-align:left; }
-  .desktop-ethos { background:linear-gradient(110deg,#e6dbcd 55%,#f2ece4); display:grid; grid-template-columns:52% 48%; min-height:760px; position:relative; }
+  .desktop-ethos { background:linear-gradient(110deg,#e6dbcd 55%,#f2ece4); display:grid; grid-template-columns:52% 48%; min-height:500px; position:relative; }
   .desktop-ethos > img { height:500px; margin-top:0; object-fit:cover; width:100%; }
   .desktop-ethos-label,.desktop-panel { align-items:center; background:var(--olive); color:#fff; display:flex; flex-direction:column; justify-content:center; }
   .desktop-ethos-label { height:180px; left:calc(52% - 90px); position:absolute; top:0; width:180px; }
