@@ -97,6 +97,28 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
 .desktop-about { display:none; }
 .desktop-projects { display:none; }
 .desktop-contact { display:none; }
+@media (prefers-reduced-motion:no-preference) {
+  html.motion-ready .home-page .reveal .reveal-media,
+  html.motion-ready .home-page .reveal .reveal-copy,
+  html.motion-ready .home-page .reveal .reveal-label,
+  html.motion-ready .home-page .reveal.reveal-nav { opacity:0; transform:translateY(26px); transition:opacity .72s ease,transform .72s cubic-bezier(.22,1,.36,1); will-change:opacity,transform; }
+  html.motion-ready .home-page .reveal .reveal-label { transition-delay:.1s; }
+  html.motion-ready .home-page .reveal .reveal-copy { transition-delay:.2s; }
+  html.motion-ready .home-page .reveal.visible .reveal-media,
+  html.motion-ready .home-page .reveal.visible .reveal-copy,
+  html.motion-ready .home-page .reveal.visible .reveal-label,
+  html.motion-ready .home-page .reveal.visible.reveal-nav { opacity:1; transform:translateY(0); }
+  html.motion-ready .home-page .home-hero-intro .hero-slide img { transform:scale(1.04); transition:transform 1.2s cubic-bezier(.22,1,.36,1); }
+  html.motion-ready .home-page .home-hero-intro.visible .hero-slide.is-active img { transform:scale(1); }
+  html.motion-ready .home-page .mobile-ethos .reveal-label,
+  html.motion-ready .home-page .mobile-essential .reveal-label,
+  html.motion-ready .home-page .journey-carousel .reveal-label { transform:translateX(-50%) translateY(26px); }
+  html.motion-ready .home-page .mobile-ethos.visible .reveal-label,
+  html.motion-ready .home-page .mobile-essential.visible .reveal-label,
+  html.motion-ready .home-page .journey-carousel.visible .reveal-label { transform:translateX(-50%) translateY(0); }
+  html.motion-ready .home-page .desktop-sustainability .reveal-copy { transform:translateX(-50%) translateY(26px); }
+  html.motion-ready .home-page .desktop-sustainability.visible .reveal-copy { transform:translateX(-50%) translateY(0); }
+}
 @media (min-width:1024px) {
   .home-page { background:#e6dbcd; max-width:none; width:100%; }
   .home-page main { max-width:none; overflow:visible; }
@@ -242,11 +264,13 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
   .desktop-contact-hero { height:min(47vw,740px); min-height:560px; overflow:hidden; position:relative; }
   .desktop-contact-hero > img { height:100%; object-fit:cover; object-position:center; width:100%; }
   .desktop-contact-hero::after { background:linear-gradient(90deg,rgba(0,0,0,.46),transparent 64%,rgba(0,0,0,.14)); content:""; inset:0; position:absolute; }
-  .desktop-contact-hero > div { bottom:70px; color:#fff; left:9%; max-width:430px; position:absolute; z-index:1; }
+  .desktop-contact-hero > div { align-items:flex-start; bottom:70px; color:#fff; display:flex; flex-direction:column; left:9%; max-width:430px; position:absolute; text-align:left; z-index:1; }
   .desktop-contact-hero > div > p:first-child,.desktop-contact-copy > p:first-child { font-family:"Cormorant Garamond",serif; font-size:14px; letter-spacing:.24em; margin:0 0 24px; }
   .desktop-contact-hero h1 { font-size:44px; font-weight:500; letter-spacing:.12em; margin:0; }
   .desktop-contact-hero span { background:currentColor; display:block; height:48px; margin:30px 0; width:1px; }
-  .desktop-contact-hero > div > p:last-child { font-size:14px; letter-spacing:.08em; line-height:2.1; margin:0; }
+  .desktop-contact-hero-message { align-items:flex-start; display:flex; gap:24px; margin-top:30px; }
+  .desktop-contact-hero-message span { flex:0 0 1px; margin:0; }
+  .desktop-contact-hero-message p { flex:1; font-size:14px; letter-spacing:.08em; line-height:2.1; margin:0; }
   .desktop-contact-details { background:#f1ebe3; display:grid; grid-template-columns:34% 1fr; min-height:610px; padding:105px 14%; }
   .desktop-contact-panel { align-self:start; align-items:center; background:var(--olive); color:#fff; display:flex; flex-direction:column; height:184px; justify-content:center; width:184px; }
   .desktop-contact-panel span { font-size:20px; letter-spacing:.16em; }

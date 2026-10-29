@@ -1,3 +1,7 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (!prefersReducedMotion.matches) document.documentElement.classList.add('motion-ready');
+
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('#site-nav');
 const closeButton = nav?.querySelector('.menu-close');
@@ -90,7 +94,7 @@ const setupThreeUpHistoryCarousel = () => {
 
 setupThreeUpHistoryCarousel();
 
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (!prefersReducedMotion.matches) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
