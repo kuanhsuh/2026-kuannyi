@@ -81,11 +81,11 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
 .projects-timeline article { display:grid; grid-template-columns:30% 1fr; min-height:132px; position:relative; }
 .projects-timeline article::after { background:rgba(118,109,98,.5); bottom:0; content:""; left:30%; position:absolute; top:0; width:1px; }
 .projects-timeline article:last-child::after { bottom:auto; height:var(--timeline-cross-y); }
-.projects-timeline time { color:var(--rose); font-family:"Cormorant Garamond",serif; font-size:clamp(40px,10vw,54px); line-height:1; }
-.projects-timeline p { color:var(--olive); font-size:clamp(20px,5vw,27px); letter-spacing:.08em; line-height:1.65; margin:0; padding-left:54px; position:relative; text-align:right; }
-.projects-timeline p::before { background:rgba(118,109,98,.5); content:""; height:1px; left:-10px; position:absolute; top:var(--timeline-cross-y); width:54px; }
-.projects-timeline article:nth-child(3) p span { display:block; white-space:nowrap; }
-.projects-timeline .timeline-2006-items { align-items:baseline; display:flex; justify-content:space-between; text-align:left; }
+.projects-timeline time { color:var(--rose); font-family:"Cormorant Garamond",serif; font-size:clamp(34px,8vw,44px); font-variant-numeric:lining-nums; line-height:1; }
+.projects-timeline p { color:var(--olive); font-size:clamp(17px,4.5vw,22px); letter-spacing:.08em; line-height:1.65; margin:0; padding-left:28px; position:relative; text-align:right; }
+.projects-timeline p::before { background:rgba(118,109,98,.5); content:""; height:1px; left:-6px; position:absolute; top:var(--timeline-cross-y); width:28px; }
+.projects-timeline article:nth-child(3) p span { display:block; }
+.projects-timeline .timeline-2006-items { align-items:baseline; display:flex; flex-wrap:wrap; gap:0 12px; justify-content:flex-end; text-align:left; }
 .projects-timeline .timeline-2006-items span { white-space:nowrap; }
 .mobile-essential-copy { background:var(--paper-light); overflow:hidden; padding:58px 15% 66px; position:relative; }
 .mobile-essential-copy h2 { font-size:clamp(28px,7.4vw,37px); font-weight:500; letter-spacing:.12em; line-height:1.5; margin:0 0 38px; }
