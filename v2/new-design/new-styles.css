@@ -48,8 +48,8 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
 .journey-card.is-active { opacity:1; pointer-events:auto; }
 .journey-card > img { aspect-ratio:1.38; display:block; margin:0 auto; object-fit:cover; width:76%; }
 .journey-card-copy { margin:58px auto 0; width:70%; }
-.journey-card time { display:block; font-family:"Cormorant Garamond",serif; font-size:clamp(64px,15vw,86px); line-height:.84; }
-.journey-card time em { color:var(--rose); display:block; font-size:clamp(42px,11vw,64px); font-style:normal; white-space:nowrap; }
+.journey-card time { display:block; font-family:"Cormorant Garamond",serif; font-size:clamp(64px,15vw,86px); font-variant-numeric:lining-nums; line-height:.84; }
+.journey-card time em { color:var(--rose); display:block; font-size:clamp(42px,11vw,64px); font-style:normal; line-height:1; margin-top:.08em; white-space:nowrap; }
 .journey-card-copy p { border-left:1px solid var(--ink); font-size:15px; letter-spacing:.08em; line-height:1.9; margin:42px 0 0; padding-left:14px; }
 .journey-carousel .carousel-pagination { display:none; }
 .journey-carousel .carousel-controls { bottom:184px; gap:22px; }
@@ -73,6 +73,7 @@ main,.contact-section { margin:auto; max-width:540px; overflow:hidden; }
 .projects-page .project-card ul { display:flex; flex-wrap:wrap; gap:10px 7px; list-style:none; margin:0; padding:0; }
 .projects-page .project-card li { border:1px solid rgba(102,91,70,.55); color:#766d62; font-family:"Noto Sans TC",sans-serif; font-size:13px; letter-spacing:.08em; padding:9px 11px; }
 .projects-page .project-card > img { align-self:start; aspect-ratio:auto; height:100%; object-fit:contain; object-position:center top; padding:0 11% 54px; width:100%; }
+.projects-page .project-card--benshu { grid-template-rows:auto minmax(0,1fr); }
 .projects-page .project-card--benshu > img { object-fit:cover; object-position:68% center; }
 .projects-page .project-carousel .carousel-pagination { display:none; }
 .projects-page .project-carousel { margin-bottom:50px; overflow:visible; }
