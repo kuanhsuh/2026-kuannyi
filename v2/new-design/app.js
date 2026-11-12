@@ -60,6 +60,9 @@ const setupCarousel = (selector, slideSelector, label) => {
     if (carousel.matches('.hero-carousel') && window.matchMedia('(max-width: 1023px) and (prefers-reduced-motion: no-preference)').matches) {
       window.setInterval(() => showSlide(currentSlide + 1), 3000);
     }
+    if (carousel.matches('.mobile-essential-media') && window.matchMedia('(max-width: 1023px) and (prefers-reduced-motion: no-preference)').matches) {
+      window.setInterval(() => showSlide(currentSlide + 1), 1500);
+    }
   });
 };
 
